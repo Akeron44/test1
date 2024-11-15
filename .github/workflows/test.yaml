@@ -12,5 +12,5 @@ name: Test Ec2 Github Actions
         - uses: actions/checkout@v2
         - name: Run terraform init
           run: terraform init
-          workspace: /aws
+          working-directory: /aws
           shell: bash
