@@ -11,6 +11,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Run terraform init
-        run: terraform init
+        run: |
+          terraform init
+          terraform apply -auto-approve
         working-directory: ./aws
         shell: bash
