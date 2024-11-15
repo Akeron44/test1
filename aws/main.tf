@@ -7,7 +7,7 @@ data "aws_ami" "ubuntu" {
 
   filter {
     name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"]
+    values = ["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"]
   }
 
   filter {
@@ -15,12 +15,12 @@ data "aws_ami" "ubuntu" {
     values = ["hvm"]
   }
 
-  owners = ["099720109477"] # Canonical
+  owners = ["099720109477"]
 }
 
 resource "aws_instance" "sample_server" {
-  ami                    = data.aws_ami.ubuntu.id
   instance_type          = "t2.micro"
+  ami                    = data.aws_ami.ubuntu.id
   vpc_security_group_ids = ["sg-0943ad0b8875a7e25"]
 
   tags = {
