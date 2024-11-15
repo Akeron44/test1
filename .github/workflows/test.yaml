@@ -1,16 +1,16 @@
-name: Test Ec2 Github Actions
+name: Test EC2 GitHub Actions
 
- on: 
-  push:   
-    branches: 
+on:
+  push:
+    branches:
       - main
-  
-  jobs:
-    create-ec2:
-      runs-on: ubuntu-latest
-      steps: 
-        - uses: actions/checkout@v2
-        - name: Run terraform init
-          run: terraform init
-          working-directory: /aws
-          shell: bash
+
+jobs:
+  create-ec2:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run terraform init
+        run: terraform init
+        working-directory: ./aws
+        shell: bash
